@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.urls import path
-from sales import views
-from sales.views import Homepage
+from django.urls.conf import include
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.Homepage)
+    path('Homepage/', include('sales.urls', namespace = "homepage"))
 ]

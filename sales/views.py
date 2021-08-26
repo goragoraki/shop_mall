@@ -1,14 +1,21 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render
-from .models import 아이디
+from .models import Sale
 
 # Create your views here.
-def Homepage(request):
-    custom = 아이디.objects.all()
+def Sales_List(request):
+    sales_person = Sale.objects.all()
     context = {
-        "menu" : "bread",
-        "price" : "600won",
-        "custom" : custom ,
+        "person_key" : sales_person
     }
-    return render(request, "index2.html", context)
+    return render(request, "sales_list.html", context)
+
+def Sales_Detail(request, pk):   
+    sales_person = Sale.objects.get(id = pk)
+    context = {
+        "person_key" : sales_person
+    }
+
+    return render(request, "sales_detail.html", context)
+
 

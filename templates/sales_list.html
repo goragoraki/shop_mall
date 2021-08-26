@@ -1,0 +1,19 @@
+<html>
+<head>
+    <style>
+        .세일 {
+            padding: 20px;
+            background-color:beige;
+        }
+    </style>
+</head>
+<h1>Goods On Sale</h1>
+<body>
+{% for s_p in person_key %}
+<div class = "세일" >
+    <!-- 링크 걸기 -->
+    <a href="/Homepage/{{ s_p.pk }}">{{ s_p.last_name }}{{ s_p.first_name }}</a>  age : {{ s_p.age }}
+</div>  
+{% endfor %}
+</body>
+</html>
