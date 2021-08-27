@@ -1,0 +1,15 @@
+<html>
+<head>
+
+</head>
+<body>
+
+<p> Input sale 
+<p>
+    <form method = "post">
+        {% csrf_token %}
+        {{ forms_key.as_p }}
+        <button type = "submit">submit</button>
+    </form>
+</body>
+</html>
