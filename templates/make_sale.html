@@ -1,9 +1,6 @@
-<html>
-<head>
+{% extends 'base.html' %}
 
-</head>
-<body>
-
+{% block content %}
 <p> Input sale 
 <p>
     <form method = "post">
@@ -11,5 +8,4 @@
         {{ forms_key.as_p }}
         <button type = "submit">submit</button>
     </form>
-</body>
-</html>
+{% endblock content %}

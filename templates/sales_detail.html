@@ -1,13 +1,6 @@
-<html>
-<head>
-    <style>
-        .세일 {
-            padding: 20px;
-            background-color:beige;
-        }
-    </style>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
 
 <h1>this is {{person_key.last_name}}{{ person_key.first_name }}'s age info</h1>
 
@@ -17,5 +10,5 @@
 <a href = "{% url 'homepage:list' %}">list</a><br>
 <a href = "{% url 'homepage:update' person_key.pk %}">adjust</a>
 <a href = "{% url 'homepage:delete' person_key.pk %}">delete</a>
-</body>
-</html>
+
+{% endblock content %}

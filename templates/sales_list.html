@@ -1,14 +1,7 @@
-<html>
-<head>
-    <style>
-        .세일 {
-            padding: 20px;
-            background-color:beige;
-        }
-    </style>
-</head>
+{% extends 'base.html' %}
+
+{% block content %}
 <h1>Goods On Sale</h1>
-<body>
 {% for s_p in person_key %}
 <div class = "세일" >
     <!-- 링크 걸기 -->
@@ -18,6 +11,4 @@
 <p>
 <!-- <a href="/Homepage/make">add sales</a> -->
 <a href = "{% url 'homepage:make' %}" >add sales</a>
-</p>
-</body>
-</html>
+{% endblock content %}

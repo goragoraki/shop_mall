@@ -1,8 +1,5 @@
-<html>
-<head>
-
-</head>
-<body>
+{% extends 'base.html' %} 
+{% block content %}
 
 <p> {{person_key.last_name}} {{person_key.first_name}}님의 정보 수정
 <p>
@@ -11,5 +8,4 @@
         {{ forms_key.as_p }}
         <button type = "submit">submit</button>
     </form>
-</body>
-</html>
+{% endblock content %}
