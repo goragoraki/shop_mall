@@ -26,13 +26,60 @@ def Make_Sale(request):
         v_form = SaleModelForm(request.POST)
         if v_form.is_valid():
             v_form.save()
-            return redirect("/Homepage")
+            return redirect("homepage:list")
             
     context ={
         "forms_key" : v_form
     }
 
     return render(request, "make_sale.html", context)
+
+##모델폼
+def Sale_Update(request, pk):
+    person = Sale.objects.get(id=pk)
+
+    v_form = SaleModelForm(instance=person)
+    if request.method == "POST":
+        v_form = SaleModelForm(request.POST, instance=person)
+        if v_form.is_valid():
+            v_form.save()
+            return redirect("homepage:list")
+
+    context ={
+        'person_key' : person,
+        "forms_key" : v_form,
+    }
+    return render(request, "sales_update.html", context)
+
+def Sale_delete(request, pk):
+    person = Sale.objects.get(id=pk)
+    person.delete()
+    return redirect('homepage:list')
+
+
+
+##일반폼
+""" def Sale_Update(request, pk):
+    person = Sale.objects.get(id=pk)
+    v_form = SaleForm()
+    if request.method == "POST":
+        v_form = SaleForm(request.POST)
+        if v_form.is_valid():
+            first_name_ = v_form.cleaned_data['first_name']
+            last_name_ = v_form.cleaned_data['last_name']
+            age_ = v_form.cleaned_data['age']
+
+            person.first_name = first_name_
+            person.last_name = last_name_
+            person.age = age_
+            person.save()
+            return redirect("/Homepage")
+
+    context ={
+        'person_key' : person,
+        "forms_key" : v_form,
+    }
+    return render(request, "sales_update.html", context) """
 
 ## 그냥 폼
 """ def Make_Sale(request):

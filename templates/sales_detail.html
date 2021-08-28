@@ -14,5 +14,8 @@
 <p> age : {{ person_key.age }}
 
 <p>영업 실적을 올린 직원은 {{person_key.person}}</p>
+<a href = "{% url 'homepage:list' %}">list</a><br>
+<a href = "{% url 'homepage:update' person_key.pk %}">adjust</a>
+<a href = "{% url 'homepage:delete' person_key.pk %}">delete</a>
 </body>
 </html>

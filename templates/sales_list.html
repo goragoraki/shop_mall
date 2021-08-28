@@ -12,11 +12,12 @@
 {% for s_p in person_key %}
 <div class = "세일" >
     <!-- 링크 걸기 -->
-    <a href="/Homepage/{{ s_p.pk }}">{{ s_p.last_name }}{{ s_p.first_name }}</a>  age : {{ s_p.age }}
+    <a href="{% url 'homepage:detail' s_p.pk %}">{{ s_p.last_name }}{{ s_p.first_name }}</a>  age : {{ s_p.age }}
 </div>  
 {% endfor %}
 <p>
-<a href="/Homepage/make">add sales</a>
+<!-- <a href="/Homepage/make">add sales</a> -->
+<a href = "{% url 'homepage:make' %}" >add sales</a>
 </p>
 </body>
 </html>
