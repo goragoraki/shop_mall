@@ -4,6 +4,10 @@ from .models import Sale, Person
 from .forms import SaleForm, SaleModelForm
 
 # Create your views here.
+
+def Home(request):
+    return render(request, "home.html")
+
 def Sales_List(request):
     sales_person = Sale.objects.all()
     context = {

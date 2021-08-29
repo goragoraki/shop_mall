@@ -1,14 +1,33 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Goods On Sale</h1>
-{% for s_p in person_key %}
-<div class = "세일" >
-    <!-- 링크 걸기 -->
-    <a href="{% url 'homepage:detail' s_p.pk %}">{{ s_p.last_name }}{{ s_p.first_name }}</a>  age : {{ s_p.age }}
-</div>  
+<h1>Sales Info</h1> <br>
+<div class = "mb-5">
+    <a href = "{% url 'homepage:make' %}" >add sales</a>
+</div>
+    {% for s_p in person_key %}
+    <div class="flex flex-wrap -m-4">
+      <div class="p-4 lg:w-1/2 md:w-full">
+        <div class="flex border-2 rounded-lg border-gray-200 border-opacity-50 p-8 sm:flex-row flex-col">
+          <div class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-8 h-8" viewBox="0 0 24 24">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+            </svg>
+          </div>
+          <div class="flex-grow">
+            <h2 class="text-gray-900 text-lg title-font font-medium mb-3">{{ s_p.last_name }}{{ s_p.first_name }}</h2>
+            <a href = "{% url 'homepage:detail' s_p.pk %}"class="mt-3 text-indigo-500 inline-flex items-center">Learn More
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
 {% endfor %}
 <p>
 <!-- <a href="/Homepage/make">add sales</a> -->
-<a href = "{% url 'homepage:make' %}" >add sales</a>
+<br>
+
 {% endblock content %}
