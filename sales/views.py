@@ -2,8 +2,11 @@ from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from .models import Sale, Person
 from .forms import SaleForm, SaleModelForm
-
+from django.views import generic
 # Create your views here.
+
+class Home_V(generic.TemplateView):
+    template_name ="home.html"
 
 def Home(request):
     return render(request, "home.html")
